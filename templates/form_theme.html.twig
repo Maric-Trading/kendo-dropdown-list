@@ -1,0 +1,10 @@
+{% block kendodropdownlist_widget -%}
+    {% set controller = 'maric-trading--kendo-dropdown-list--kendodropdownlist' %}
+    <div data-controller="{{ controller }}"
+         data-{{ controller}}-remote-url-value="{{ attr['remoteUrl'] }}"
+         data-{{ controller }}-label-field-value="{{ attr['labelField'] }}"
+         data-{{ controller }}-value-field-value="{{ attr['valueField'] }}">
+        <select class="form-control" data-{{ controller }}-target="input">
+        </select>
+    </div>
+{%- endblock %}
