@@ -12,13 +12,19 @@
 namespace MaricTrading\KendoDropdownList\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\ChoiceList\Factory\ChoiceListFactoryInterface;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 
-class KendoDropdownListType extends AbstractType
+class KendoDropdownListType extends TextType
 {
+
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -27,21 +33,22 @@ class KendoDropdownListType extends AbstractType
 
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults([
+        $defaults = [
             'attr' => [
                 'remoteUrl'=>'',
                 'labelField'=>'id',
                 'valueField'=>'name'
             ],
-        ]);
+        ];
+        $resolver->setDefaults($defaults);
     }
 
     public function getParent()
     {
-        return ChoiceType::class;
+        return TextType::class;
     }
 
-    public function getBlockPrefix()
+    public function getBlockPrefix(): string
     {
         return 'kendodropdownlist';
     }

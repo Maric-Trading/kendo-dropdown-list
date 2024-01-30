@@ -4,7 +4,9 @@
          data-{{ controller}}-remote-url-value="{{ attr['remoteUrl'] }}"
          data-{{ controller }}-label-field-value="{{ attr['labelField'] }}"
          data-{{ controller }}-value-field-value="{{ attr['valueField'] }}">
-        <select class="form-control" data-{{ controller }}-target="input">
-        </select>
+        <input type="text" class="form-control" data-{{ controller }}-target="input"
+            name="{{ full_name }}"
+        >
+        </input>
     </div>
 {%- endblock %}

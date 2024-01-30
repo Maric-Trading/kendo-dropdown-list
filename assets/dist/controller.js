@@ -38,9 +38,12 @@ class KendoDropDownList extends Controller {
             }
         });
     }
-    onInputChange(event) {
+    onInputChange = (event) => {
         console.log('onInputChange');
         console.log(event);
+        const di = event.dataItem;
+        console.log(di);
+        this.inputTarget.value = di[this.valueFieldValue];
 
     }
 }
